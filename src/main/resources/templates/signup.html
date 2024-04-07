@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Sign Up Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" th:href="@{/css/signup.css}" href="/static/css/signup.css">
+
+</head>
+<body>
+<div class="signup-section">
+  <h2 id="signup-h2">Sign Up</h2>
+
+  <div class="form-style">
+    <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+      <input class="cool" type="text" id="username" name="firstname" th:field="*{firstname}" placeholder="First name"  required><br>
+      <input class="cool"type="text" id="lastname" name="lastname" placeholder="Last name" th:field="*{lastname}" required><br>
+      <div class="user-gender">
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"  th:field="*{gender}" required> Male
+        <input type="radio" name="gender" value="Female" th:field="*{gender}" required> Female <br>
+      </div>
+
+      <input class="cool" type="number" id="age" name="age" placeholder="Age" th:field="*{age}" required><br>
+      <input class="cool" type="email"  name="email" id="email" placeholder="Email" th:field="*{email}" required><br>
+      <input class="cool" type="password" id="password" name="password" placeholder="Password" th:field="*{password}" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <p><a th:href="@{/login}" id="create-btn">Login</a> If you already have an account...</p>
+  </div>
+
+</div>
+</body>
+</html>

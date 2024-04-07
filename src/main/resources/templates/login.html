@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" href="/static/css/login.css">
+
+</head>
+<body>
+<div class="container-1">
+    <div class="container-2">
+        <span id="span-1">facebook</span>
+        <span id="span-2">Facebook helps you connect and share with the people in your life</span>
+    </div>
+    <div class="container-3">
+        <div class="container-4">
+            <form action="/login" th:href="@{/login}" th:object="${loginDTOReq}" method="post">
+                <input type="email" name="email" id="email" placeholder="Email" th:field="*{email}" required/>
+                <input type="password" name="password"  id="password" placeholder="Password" th:field="*{password}" required/>
+
+                <div class="button-center">
+                    <button class="login-btn" type="submit" >Log In</button>
+                </div>
+
+            </form>
+            <a th:href="@{/signup}" >Forgot Password?</a>
+            <hr>
+
+            <a th:href="@{/signup}" id="create-btn">Create Account</a>
+
+
+        </div>
+        <p>
+            <a th:href="@{/signup}" >Create a Page</a> for a celebrity, brand or business...
+        </p>
+
+    </div>
+</div>
+
+<div class="create-account">
+    <p>Sign Up </p>
+    <p>it's quick and easy</p>
+
+</div>
+</body>
+</html>
