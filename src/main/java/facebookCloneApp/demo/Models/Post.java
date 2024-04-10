@@ -24,4 +24,7 @@ public class Post extends BaseClass{
 
     @ManyToOne
     private User user;
+
+    @OneToMany
+    private List<Comment> comment = new ArrayList<>();
 }

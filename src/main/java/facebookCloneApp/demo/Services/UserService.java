@@ -10,6 +10,7 @@ import java.util.List;
 public interface UserService {
     List<User> getAllUser();
     void saveUser(User user);
+    Boolean userAlreadyExist(String email);
     User getUserById(Long id);
     LoginDTORes getUserByEmailAndPassword(LoginDTOReq loginDTOReq);
     User findByPost(Post post);

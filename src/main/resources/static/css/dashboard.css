@@ -1,6 +1,7 @@
 body{
     background-color: rgb(239, 239, 239);
 }
+
 nav {
     background-color: #95acec;
     display: flex;
@@ -26,12 +27,13 @@ nav {
 
 #sub-sec-2{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     align-items: center;
     justify-content: start;
     padding: 4px;
     height: 100vh;
     background-color: white;
+    overflow: scroll;
 }
 
 #sub-sec-2-form{
@@ -45,7 +47,7 @@ nav {
     /*visibility: collapse;*/
 }
 
-#sub-sec-2-form textarea {
+textarea {
     background-color: rgb(229, 235, 246);
     width: 80%;
     height: 50px;
@@ -53,8 +55,8 @@ nav {
     margin: 20px;
     border: 1px solid rgb(106, 49, 230);
     border-radius: 2px;
-
 }
+
 #sub-sec-2-form button {
     background-color: rgb(106, 49, 230);
     color: white;
@@ -82,10 +84,12 @@ nav {
     padding: 8px;
     font-size: 12px;
 }
+
 #post-area h5{
     font-family: sans-serif;
 }
-#post-area h6{
+
+.content-style{
     font-family: cursive, serif, sans-serif;
     color: #252424;
     word-spacing: 4px;
@@ -126,6 +130,7 @@ nav {
     list-style: none;
     text-decoration: none;
 }
+
 .post-delete{
    color: red;
 }
@@ -133,4 +138,24 @@ nav {
 a {
     text-decoration: none;
 }
+
+#sub-sec-10{
+    padding: 4px;
+    /*visibility: hidden;*/
+}
+
+#butt1{
+    border: none;
+}
+
+/*#createComment{*/
+/*    width: 80%;*/
+/*    border: 1px solid rgb(106, 49, 230);*/
+/*}*/
+
+.hidden{
+    /*visibility: collapse;*/
+    display: none;
+}
+
 

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="sub-sec-2">
-    <form id="sub-sec-2-form" action="#" th:action="@{/update_post/{id}(id = ${post.id})}" method="post" th:object="${post}">
+    <form id="sub-sec-2-form" action="#" th:action="@{/post-update/{id}(id = ${post.id})}" method="post" th:object="${post}">
         <input type="hidden" name="id" th:value="${post.id}" />
         <textarea type="text" rows="4" cols="50" th:field="${post.content}" name="updatedPost"  id="updatedPost" required></textarea>
 

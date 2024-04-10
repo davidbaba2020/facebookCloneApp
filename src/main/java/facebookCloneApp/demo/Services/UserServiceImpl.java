@@ -31,6 +31,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Boolean userAlreadyExist(String email) {
+       return userRepository.existsByEmail(email);
+    }
+
+    @Override
     public User getUserById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
         User user = null;

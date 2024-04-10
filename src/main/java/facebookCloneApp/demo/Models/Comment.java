@@ -17,10 +17,10 @@ public class Comment extends BaseClass{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
-    private String createdBy;
 
-    @OneToMany
-    private List<Like> likes;
+    @ManyToOne
+    private Post post;
 
-
+    @ManyToOne
+    private User user;
 }

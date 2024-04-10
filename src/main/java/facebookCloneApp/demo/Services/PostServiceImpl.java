@@ -19,18 +19,28 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public void savePost(Post post) {
+    public void createPost(Post post) {
         postRepository.save(post);
     }
 
-//    @Override
-//    public void updatePost(Post post) {
-//        postRepository.saveAndFlush(post);
-//    }
+    @Override
+    public void updatePost(Post post) {
+        postRepository.save(post);
+    }
 
     @Override
     public List<Post> getAllPostById(Long id) {
        return postRepository.findByUserId(id);
+    }
+
+    @Override
+    public List<Post> getAllPost() {
+        return postRepository.findAll();
+    }
+
+    @Override
+    public List<Post> getAllPostsWithComments() {
+       return postRepository.findAllWithComments();
     }
 
     @Override
