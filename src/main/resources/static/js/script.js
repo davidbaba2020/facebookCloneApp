@@ -47,3 +47,16 @@ hideButtons.forEach((button) => {
     });
 });
 
+
+// const likeButton = document.getElementById('likeButton');
+// const unlikeButton = document.getElementById('unlikeButton');
+//
+// // Add event listeners to each button
+// likeButton.addEventListener('click', function() {
+//     // Hide the Like button
+//     if (likeButton.style.display != "none"){
+//         likeButton.style.display = 'none';
+//         unlikeButton.style.display = 'block';
+//     }
+//
+// });

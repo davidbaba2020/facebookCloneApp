@@ -52,10 +52,17 @@
               <h2 th:text="${post.content}" class="content-style"></h2>
 
               <hr>
-                    <div id="like-comment">
-                      <a th:href="@{/likePost/{id}(id = ${user.id})}">Like</a>
-                      <button type="submit" id="butt1" class="comment-button">Comment</button>
-                    </div>
+
+                  <div id="like-comment">
+                  <button id="likeButton"><a th:href="@{/likePost/{id}(id = ${post.id})}" th:object="${like}" type="submit" th:method="post">Like</a></button>
+                  <button  id="unlikeButton"><a th:href="@{/unlikePost/{id}(id = ${post.id})}" th:object="${like}" type="submit" th:method="post">UnLike</a></button>
+
+                  <button type="submit" id="butt1" class="comment-button">Comment</button>
+              </div>
+
+
+
+
 
               <!-- Comment form for this post -->
               <form class="comment-form hidden" th:id="'sub-sec-10-' + ${post.id}" action="/post/{postId}/comment" method="post" th:action="@{'/post/' + ${post.id} + '/comment'}" th:object="${comment}">
@@ -65,14 +72,19 @@
               </form>
 
               <hr>
-
+ 
                   <div th:each="commentMade: ${comments}" id="post-areas" th:if="${commentMade.post.id eq post.id}">
+                      <h3>Comments</h3>
                       <div th:if="${commentMade != null}">
                           <p th:text="${commentMade.content}"></p>
                       </div>
+                      <div id="crud-comment">
+                          <ul>
+                              <li><a th:href="@{/comment-edit/{id}(id = ${commentMade.id})}">Edit Comment</a></li>
+                              <li><a th:href="@{/comment-delete/{id}(id = ${commentMade.id})}" class="post-delete">Delete Comment</a></li>
+                          </ul>
+                      </div>
                   </div>
-
-              </div>
 
           </div>
 

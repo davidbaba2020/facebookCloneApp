@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Comment Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}" href="/static/css/dashboard.css">
+    <title>Comment Update</title>
+</head>
+<body>
+<div id="sub-sec-2">
+    <form id="sub-sec-2-form" action="#" th:action="@{/comment-update/{id}(id = ${comment.id})}" method="post" th:object="${comment}">
+        <input type="hidden" name="id" th:value="${comment.id}" />
+        <textarea type="text" rows="4" cols="50" th:field="${comment.content}" name="updatedComment"  id="updatedComment" required></textarea>
+
+        <button type="submit">Update Comment</button>
+    </form>
+
+</div>
+</body>
+</html>

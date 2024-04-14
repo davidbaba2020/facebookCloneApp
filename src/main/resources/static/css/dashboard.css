@@ -126,7 +126,7 @@ textarea {
     font-size: 12px;
 }
 
-#crud-post li{
+ li{
     list-style: none;
     text-decoration: none;
 }
@@ -148,14 +148,18 @@ a {
     border: none;
 }
 
-/*#createComment{*/
-/*    width: 80%;*/
-/*    border: 1px solid rgb(106, 49, 230);*/
-/*}*/
 
 .hidden{
-    /*visibility: collapse;*/
     display: none;
+}
+
+#crud-comment{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+#unlikeButton{
+    /*display: none;*/
 }
 
 

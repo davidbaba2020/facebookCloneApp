@@ -1,6 +1,8 @@
 package facebookCloneApp.demo.Services;
 
+import facebookCloneApp.demo.DTO.ResponseDTO.LoginDTORes;
 import facebookCloneApp.demo.Models.Post;
+import facebookCloneApp.demo.Models.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,4 +17,6 @@ public interface PostService {
    List<Post> getAllPostsWithComments();
    Post getPostById(Long postId);
    void deletePost(Long postId);
+
+    User createUserTemplate(LoginDTORes loginDTORes);
 }
