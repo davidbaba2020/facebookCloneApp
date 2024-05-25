@@ -4,6 +4,8 @@ import facebookCloneApp.demo.Models.Comment;
 import facebookCloneApp.demo.Models.Post;
 import facebookCloneApp.demo.Models.User;
 import facebookCloneApp.demo.Repository.CommentRepository;
+import facebookCloneApp.demo.Repository.PostRepository;
+import facebookCloneApp.demo.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,13 +15,19 @@ import java.util.Optional;
 public class CommentServiceImpl implements CommentService{
 
     private final CommentRepository commentRepository;
+    private final PostRepository postRepository;
+    private final UserRepository userRepository;
 
-    public CommentServiceImpl(CommentRepository commentRepository) {
+    public CommentServiceImpl(CommentRepository commentRepository, PostRepository postRepository, UserRepository userRepository) {
         this.commentRepository = commentRepository;
+        this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
-    public void createComment(Comment comment) {
+    public void createComment(Comment comment, Long postId, Long userId) {
+        postRepository.findById(postId).ifPresent(comment::setPost);
+        userRepository.findById(userId).ifPresent(comment::setUser);
         this.commentRepository.save(comment);
     }
 
@@ -40,8 +48,16 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public void updateComment(Comment comment) {
-        this.commentRepository.save(comment);
+    public void updateComment(Comment comment, Long commentId, Long userId) {
+        Comment existingComment = null;
+        Optional<Comment> optionalComment = commentRepository.getCommentByIdAndUserId(commentId, userId);
+        if (optionalComment.isPresent()){
+            existingComment = optionalComment.get();
+            existingComment.setContent(comment.getContent());
+
+            this.commentRepository.save(existingComment);
+        }
+
     }
 
 

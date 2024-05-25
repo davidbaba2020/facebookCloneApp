@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface PostService {
-    void createPost(Post post);
-    void updatePost(Post post);
+    void createPost(Long userId, Post post);
+    void save(Post post);
    List<Post> getAllPostById(Long id);
    List<Post> getAllPost();
 
@@ -19,4 +19,6 @@ public interface PostService {
    void deletePost(Long postId);
 
     User createUserTemplate(LoginDTORes loginDTORes);
+
+    void updatePost(Long postId, Long userId, Post updatedPost);
 }

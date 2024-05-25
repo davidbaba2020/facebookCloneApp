@@ -20,16 +20,42 @@ nav {
     /*align-items: center;*/
 }
 
-#sub-sec-1{
-    width: 25%;
-    /*height: 100vh;*/
+.dashboard-links{
+    display: flex;
+    flex-flow: column wrap;
 }
 
-#sub-sec-2{
+.dashboard-links a{
+   margin: 16px;
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dashboard-links a:hover{
+  font-size: 20px;
+    letter-spacing: 4px;
+    transition: 0.4s;
+}
+
+.dashboard-links img {
+    width: 40px;
+    height: 40px;
+    padding-right: 8px;
+    border-radius: 4px;
+}
+
+.lined{
+    display: flex;
+}
+
+.sub-sec-2{
     display: flex;
     flex-flow: column;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     padding: 4px;
     height: 100vh;
     background-color: white;
@@ -47,6 +73,18 @@ nav {
     /*visibility: collapse;*/
 }
 
+
+/*#update-form{*/
+/*    display: flex;*/
+/*    flex-flow: column wrap;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    width: 80%;*/
+/*    background-color: whitesmoke;*/
+/*    box-sizing: border-box;*/
+/*    !*visibility: collapse;*!*/
+/*}*/
+
 textarea {
     background-color: rgb(229, 235, 246);
     width: 80%;
@@ -57,11 +95,11 @@ textarea {
     border-radius: 2px;
 }
 
-#sub-sec-2-form button {
+#sub-sec-2-form button, #update-form button {
     background-color: rgb(106, 49, 230);
     color: white;
     border: none;
-    width: 10%;
+    width: 15%;
     padding: 4px;
     margin-bottom: 12px;
     border-radius: 12px;
@@ -70,19 +108,17 @@ textarea {
 
 #sub-sec-3{
     display: flex;
-    flex-flow: column wrap;
-    width: 25%;
+    flex-flow: row wrap;
     /*height: 100vh;*/
 }
 
 #post-area{
     font-size: 12px;
-    background-color: rgb(239, 239, 239);
+    background-color: rgb(239, 207, 207);
     border-radius: 8px;
     width: 80%;
     margin: 1px;
     padding: 8px;
-    font-size: 12px;
 }
 
 #post-area h5{
@@ -104,11 +140,18 @@ textarea {
 
 #post-content{
     font-size: 18px;
-    font-family: Algerian;
+    font-family: Algerian, serif;
     word-spacing: 4px;
     border: 0;
     padding: 2px;
     margin: 0;
+}
+
+.comment-text{
+    font-size: 18px;
+    font-family: Monospaced, serif;
+    word-spacing: 4px;
+    color: #214949;
 }
 
 #like-comment{
@@ -160,6 +203,50 @@ a {
 
 #unlikeButton{
     /*display: none;*/
+}
+
+.handle-request{
+    width: 100%;
+    padding: 8px;
+}
+
+.contact-user{
+    display: flex;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+
+.contact-user h2{
+    padding: 4px;
+    margin: 0;
+}
+
+.friend-request{
+    display: flex;
+    gap: 12px;
+}
+
+#add-friend-btn, #delete-friend-btn{
+    color: white;
+    background-color: #5353fc;
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+}
+#delete-friend-btn{
+    color: black;
+    background-color: rgb(169, 164, 164);
+}
+
+.friend-zone{
+    background-color: #dcdbdb;
+    margin: 4px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+marquee p{
+    margin-right: 8px;
 }
 
 

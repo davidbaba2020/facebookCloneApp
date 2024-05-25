@@ -27,11 +27,11 @@ public class User extends BaseClass{
     private String email;
     private String password;
 
-    @OneToMany
-    private List<Post> posts = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Post> posts;
 
-    @OneToMany
-    private List<Comment> comments = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
 
 }

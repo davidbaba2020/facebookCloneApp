@@ -9,8 +9,9 @@
 </head>
 <body>
 <div id="sub-sec-2">
-    <form id="sub-sec-2-form" action="#" th:action="@{/comment-update/{id}(id = ${comment.id})}" method="post" th:object="${comment}">
-        <input type="hidden" name="id" th:value="${comment.id}" />
+    <form id="sub-sec-2-form" action="#" th:action="@{/comment/updateComment}" method="post" th:object="${comment}">
+        <input type="hidden" name="commentId" th:value="${comment.id}" />
+        <input type="hidden" name="userId" th:value="${loggedInUser.id}" />
         <textarea type="text" rows="4" cols="50" th:field="${comment.content}" name="updatedComment"  id="updatedComment" required></textarea>
 
         <button type="submit">Update Comment</button>

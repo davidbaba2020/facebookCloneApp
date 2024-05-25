@@ -4,7 +4,6 @@ import facebookCloneApp.demo.DTO.ResponseDTO.LoginDTORes;
 import facebookCloneApp.demo.Models.Post;
 import facebookCloneApp.demo.Models.User;
 import facebookCloneApp.demo.Repository.PostRepository;
-import facebookCloneApp.demo.Repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,19 +12,36 @@ import java.util.Optional;
 @Service
 public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
+    private final UserService userService;
 
-    public PostServiceImpl(PostRepository postRepository) {
+    public PostServiceImpl(PostRepository postRepository, UserService userService) {
         this.postRepository = postRepository;
+        this.userService = userService;
     }
 
     @Override
-    public void createPost(Post post) {
+    public void createPost(Long userId, Post post) {
+        User user = userService.getUserById(userId);
+        if (user != null) {
+            post.setUser(user);
+            postRepository.save(post);
+        }
+    }
+
+    @Override
+    public void save(Post post) {
         postRepository.save(post);
     }
 
     @Override
-    public void updatePost(Post post) {
-        postRepository.save(post);
+    public void updatePost(Long postId, Long userId, Post updatedPost) {
+        Post existingPost = null;
+            Optional<Post> post = postRepository.findByIdAndUserId(postId, userId);
+            if (post.isPresent()) {
+                existingPost = post.get();
+                existingPost.setContent(updatedPost.getContent());
+                postRepository.save(existingPost);
+            }
     }
 
     @Override

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"  th:href="@{/css/style.css}">
 </head>
 <body>
+<div>
     <div align="center">
         <h1>User Lists</h1>
         <a th:href="@{/signup}"><button>Signup</button></a>
+        <a th:href="@{/login}"><button>Login</button></a>
         <table border="1">
             <thead>
             <tr>
@@ -26,6 +28,23 @@
             </tr>
             </tbody>
         </table>
+
+<!--        <div>-->
+<!--            <div th:each="user: ${listOfUsers}">-->
+<!--                <div class="add-friend">-->
+<!--                    <h2 th:text="${user.firstname}"></h2>-->
+<!--                    <h2 th:text="${user.lastname}"></h2>-->
+<!--                </div>-->
+<!--                <div class="">-->
+<!--                    <button>Add Friend</button>-->
+<!--                    <button>Delete Friend</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
+
+
+</div>
+
 </body>
 </html>

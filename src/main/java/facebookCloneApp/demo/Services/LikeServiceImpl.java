@@ -26,7 +26,6 @@ public class LikeServiceImpl implements LikeService{
         if(likeCount == 0) {
             Like like = new Like();
             like.setPost(post);
-            like.setLiked(true);
 
             this.likeRepository.save(like);
         }
@@ -35,10 +34,15 @@ public class LikeServiceImpl implements LikeService{
     @Override
     public void unlikePost(Long postId) {
         Like like = likeRepository.findLikeByPostId(postId);
-        this.likeRepository.delete(like);
+        if (like != null) {
+            this.likeRepository.delete(like);
+        }
     }
 
-
+    @Override
+    public List<Like> findAllLike() {
+        return likeRepository.findAll();
+    }
 
 
 }

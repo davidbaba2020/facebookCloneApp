@@ -1,3 +1,9 @@
 body{
-    /*background-color: red;*/
+    /*!*background-color: red;*!*/
+
+    /*background: url("/static/images/PHOTO-2024-01-10-05-32-40.jpg") no-repeat;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center center;*/
+    /*background-size: cover;*/
+
 }

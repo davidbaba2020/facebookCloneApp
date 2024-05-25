@@ -14,8 +14,10 @@ public class Like extends BaseClass{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Boolean liked;
 
     @ManyToOne
     private Post post;
+
+    @ManyToOne
+    private User user;
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface LikeService {
 
-    void unlikePost(Long postId);
     void likePost(Long postId);
+    void unlikePost(Long postId);
+
+    List<Like> findAllLike();
 }

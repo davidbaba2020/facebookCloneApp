@@ -48,15 +48,34 @@ hideButtons.forEach((button) => {
 });
 
 
+// const featured = document.getElementById('featured').value;
+//
 // const likeButton = document.getElementById('likeButton');
 // const unlikeButton = document.getElementById('unlikeButton');
 //
-// // Add event listeners to each button
-// likeButton.addEventListener('click', function() {
-//     // Hide the Like button
-//     if (likeButton.style.display != "none"){
-//         likeButton.style.display = 'none';
-//         unlikeButton.style.display = 'block';
-//     }
+// if (featured === false){
+//        likeButton.style.display = 'none';
+//        unlikeButton.style.display = 'block';
+// }else{
+//    likeButton.style.display = 'block';
+//    unlikeButton.style.display = 'none';
+// }
 //
-// });
+
+
+const likeBtn = document.getElementById('like-btn');
+const postIdInput = document.getElementById('post-id');
+
+likeBtn.addEventListener('click', () => {
+  const postId = postIdInput.value;
+  const liked = likeBtn.textContent === 'Unlike';
+
+  // Send a request to your Spring Boot controller to update the like status
+  fetch(`/like/${postId}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ liked }),
+  });
+});
+
+

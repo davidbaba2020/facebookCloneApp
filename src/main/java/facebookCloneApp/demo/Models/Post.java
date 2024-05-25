@@ -19,12 +19,12 @@ public class Post extends BaseClass{
     private Long id;
     private String content;
 
-    @OneToMany
-    private List<Like> likes = new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Like> likes;
 
     @ManyToOne
     private User user;
 
-    @OneToMany
-    private List<Comment> comment = new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comment;
 }
